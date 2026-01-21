@@ -5,30 +5,62 @@
         static void Main(string[] args)
         {
             //*************2.4 #1*****************
-            int[] testData = { 2, 5, 8 };
+            Console.WriteLine("Enter numbers to find the sum:");
+            List<int> input = new List<int>();
+            start:
+            while (input.Count < 3)
+            {
+                try
+                {
+                    input.Add(int.Parse(Console.ReadLine()));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + " Input a valid number.");
+                    goto start;
+                }
+            }
             int sum = 0;
-            foreach (int num in testData)
+            foreach (int num in input)
             {
                 sum += num;
             }
-            Console.WriteLine($"2.3 #1 output: {sum}");
+            
+            Console.WriteLine($"2.3 #1 Sum of input: {sum}");
+            Console.WriteLine();
 
             //*************2.4 #2*****************
-            int[] testData2 = {25, 63, 10};
-            int greatest = testData2[0];
-            foreach (int num in testData2) 
+            Console.WriteLine("Enter numbers to the determine the largest number:");
+            List<int> input2 = new List<int>();
+        start2:
+            while (input2.Count < 3)
             {
-                if (num > greatest)
+                try
                 {
-                    greatest = num;
+                    input2.Add(int.Parse(Console.ReadLine()));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + " Input a valid number.");
+                    goto start2;
                 }
             }
-            Console.WriteLine($"2.3 #2 output: {greatest}");
+            int greatest = input2[0];
+            foreach (int num in input2)
+            {
+                if (num > greatest) 
+                {
+                    greatest = num;
+                    
+                }
+            }
+            Console.WriteLine($"The largest number is {greatest}");
 
             //*************2.4 #3*****************
+            Console.WriteLine();
             Console.WriteLine("******2.3 #3 Coordinate system*******");
 
-        begin:
+        start3:
             try
             {
                 Console.WriteLine("Input value for X: ");
@@ -77,7 +109,7 @@
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message + " Enter a number");
-                goto begin;
+                goto start3;
             }
 
         }
